@@ -1,36 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import Genre2000 from './components/hi-genre-2000';
+import Top2000Movies from './components/top-2000-movie';
+import PopularMovieGenre from "./components/popular-movie-genre";
+import TopDirectors from "./components/top-movie-directors";
+import AverageDirectorMovies from "./components/avg-rate-direk-movies";
+import AverageMovieGenres from "./components/avg-rate-movies-genre";
 import './styles/App.css';
-import Axios from 'axios';
-import Menu from "./components/menu";
-import { Bar, BarChart, CartesianGrid, Legend, Tooltip, XAxis, YAxis } from 'recharts';
 
-function App() {
-
-  const [dataList, setDataList] = useState([])
-
-  useEffect(() => {
-    Axios.get('http://localhost:3001/query').then((response) => {
-      setDataList(response.data);
-    })
-  }, [])
-
-
+export default function App() {
   return (
     <div className="App">
-      <Menu />
-      <div className="graph">
-        <h1>Average Rank per Genre</h1>
-          <BarChart width={1570} height={350} data={dataList}>
-            <CartesianGrid strokeDasharray="3 3" stroke='black'/>
-            <XAxis dataKey='genre'/>
-            <YAxis dataKey='Rank' />
-            <Tooltip />
-            <Legend />
-            <Bar dataKey='Rank' fill="#f6c700" />
-          </BarChart>
-      </div>
+      <Top2000Movies />
+      <Genre2000 />
+      <PopularMovieGenre />
+      <TopDirectors />
+      <AverageDirectorMovies />
+      <AverageMovieGenres />
     </div>
   );
 }
-
-export default App;

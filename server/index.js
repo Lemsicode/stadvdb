@@ -1,4 +1,6 @@
 const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
 const app = express();
 const mysql = require('mysql');
 const port = 3001;
@@ -12,19 +14,21 @@ const db = mysql.createPool({
     connectionLimit: 10
 });
 
-app.get('/', (req, res) => {
-    
-    const sqlQuery = "SELECT * FROM movies WHERE id = 99";
+// USE
+app.use(cors());
+app.use(express.json());
+app.use(bodyParser.urlencoded({extended: true}))
+
+// GET
+app.get('/query', (req, res) => {
+    const sqlQuery = "SELECT * FROM movies WHERE id <= 5";
     db.query(sqlQuery, (err, result) => {
         if (err) {
-            console.log(err);
+            res.send(err);
             return;
         }
-        else {
-            res.send(result);
-        }
+        res.send(result);
     })
-    
 });
 
 app.listen(port, () => {

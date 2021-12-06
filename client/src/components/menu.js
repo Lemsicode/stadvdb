@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles/menu.css';
-import logo from '../assets/imdb-logo.svg';
+import logo from '../assets/imdb-logo.png';
 
 export default function Menu() {
 	return(

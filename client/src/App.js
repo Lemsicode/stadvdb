@@ -19,14 +19,14 @@ function App() {
     <div className="App">
       <Menu />
       <div className="graph">
-        <h1>STADVDB</h1>
-          <BarChart width={730} height={250} data={dataList}>
+        <h1>Average Rank per Genre</h1>
+          <BarChart width={1570} height={350} data={dataList}>
             <CartesianGrid strokeDasharray="3 3" stroke='black'/>
             <XAxis dataKey='genre'/>
-            <YAxis dataKey='rank' />
+            <YAxis dataKey='Rank' />
             <Tooltip />
             <Legend />
-            <Bar dataKey='rank' fill="#8884d8" />
+            <Bar dataKey='Rank' fill="#f6c700" />
           </BarChart>
       </div>
     </div>

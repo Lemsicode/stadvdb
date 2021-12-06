@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import './App.css';
+import './styles/App.css';
 import Axios from 'axios';
 import Uniqid from 'uniqid';
+import Menu from "./components/menu";
 
 function App() {
 
@@ -16,11 +17,9 @@ function App() {
 
   return (
     <div className="App">
-      <h1>STADVDB</h1>
-      
-
-
-
+      <Menu />
+      <div className="graph">
+        <h1>STADVDB</h1>
       {
         dataList.map((val) => {
           return (
@@ -30,7 +29,7 @@ function App() {
           );
         })
       }
-
+      </div>
     </div>
   );
 }

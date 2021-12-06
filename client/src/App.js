@@ -1,21 +1,31 @@
 import React from "react";
-import Genre2000 from './components/hi-genre-2000';
-import Top2000Movies from './components/top-2000-movie';
-import PopularMovieGenre from "./components/popular-movie-genre";
-import TopDirectors from "./components/top-movie-directors";
-import AverageDirectorMovies from "./components/avg-rate-direk-movies";
-import AverageMovieGenres from "./components/avg-rate-movies-genre";
+import HighestRatedGenres2004 from './components/highest-rated-genres-2004';
+import Top2004Movies from './components/top-2004-movies';
+import ActorAppearances from "./components/actor-apperances";
+import ActorAppearancesMale from "./components/actor-appearances-male";
+import ActorAppearancesFemale from "./components/actor-appearances-female";
+
+import Top10MoviesAllTime from "./components/top-10-movies-all-time";
+import HighestRatedGenresAllTime from "./components/highest-rated-genres";
+
+import Top10MoviesWarGenre2004 from "./components/Top-10-Movies-War-Genre-2004";
 import './styles/App.css';
 
 export default function App() {
   return (
     <div className="App">
-      <Top2000Movies />
-      <Genre2000 />
-      <PopularMovieGenre />
-      <TopDirectors />
-      <AverageDirectorMovies />
-      <AverageMovieGenres />
+
+      <Top2004Movies />
+      <HighestRatedGenres2004 />
+
+      <ActorAppearances />
+      <ActorAppearancesMale />
+      <ActorAppearancesFemale />
+      
+      <Top10MoviesAllTime />
+      <HighestRatedGenresAllTime />
+
+      <Top10MoviesWarGenre2004 />
     </div>
   );
 }

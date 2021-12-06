@@ -19,21 +19,116 @@ app.use(cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({extended: true}))
 
-// GET
-app.get('/query', (req, res) => {
+// GET TOP MOVIES IN 2004
+app.get('/GET/top-2004-movie', (req, res) => {
 
-    const data = '[{"genre":"Short","rank":6.39425722142217},{"genre":"Documentary","rank":6.496829211219546},{"genre":"Crime","rank":5.860042134557994},{"genre":"Comedy","rank":5.905311078723612},{"genre":"Western","rank":5.651212937427017},{"genre":"Family","rank":6.315129585169254},{"genre":"Animation","rank":6.5578960418111025},{"genre":"Drama","rank":6.137847941268965},{"genre":"Romance","rank":6.156966660932025},{"genre":"Mystery","rank":5.932293869413231},{"genre":"Thriller","rank":5.527481210348945},{"genre":"Adult","rank":6.428048792408734},{"genre":"Music","rank":6.415911886216377},{"genre":"Action","rank":5.339820247971653},{"genre":"Fantasy","rank":5.848192781725125},{"genre":"Sci-Fi","rank":5.010578515362148},{"genre":"Horror","rank":4.756930180674216},{"genre":"War","rank":6.377797101269597},{"genre":"Musical","rank":6.087346762940679},{"genre":"Adventure","rank":5.5817167389546345},{"genre":"Film-Noir","rank":6.7017676806209066}]';
-    res.send(data);
+    const sqlQuery = "SELECT DISTINCT movie_name as `Movie`, movie_rank as `Rank` FROM dimension_movies WHERE movie_year = 2004 ORDER BY movie_rank DESC LIMIT 10;";
 
-    // const sqlQuery = "SELECT movie_genre AS genre, AVG(movie_rank) as `Rank` FROM dimension_movies WHERE movie_genre IS NOT NULL GROUP BY movie_genre;";
+    db.query(sqlQuery, (err, result) => {
+        if (err) {
+            res.send(err);
+            return;
+        }
+        res.send(result);
+    })
+});
 
-    // db.query(sqlQuery, (err, result) => {
-    //     if (err) {
-    //         res.send(err);
-    //         return;
-    //     }
-    //     res.send(result);
-    // })
+// GET HIGHEST RATED GENRES IN 2004
+app.get('/GET/highest-rated-genres-2004', (req, res) => {
+
+    const sqlQuery = "SELECT movie_genre AS `Genre`, AVG(movie_rank) AS `Rank` FROM dimension_movies WHERE movie_year = 2004 AND movie_genre IS NOT NULL AND movie_rank IS NOT NULL GROUP BY movie_genre ORDER BY `Rank` DESC;";
+
+    db.query(sqlQuery, (err, result) => {
+        if (err) {
+            res.send(err);
+            return;
+        }
+        res.send(result);
+    })
+});
+
+// GET ACTOR APPEARANCES
+app.get('/GET/actor-appearances', (req, res) => {
+
+    const sqlQuery = "SELECT a.first_name, a.last_name, a. gender, fa.count FROM fact_actors fa LEFT JOIN actors a ON fa.actor_id = a.id ORDER BY count desc LIMIT 10;";
+
+    db.query(sqlQuery, (err, result) => {
+        if (err) {
+            res.send(err);
+            return;
+        }
+        res.send(result);
+    })
+});
+
+// GET MALE ACTOR APPEARANCES
+app.get('/GET/actor-appearances-male', (req, res) => {
+
+    const sqlQuery = "SELECT a.first_name, a.last_name, fa.count FROM fact_actors fa LEFT JOIN actors a ON fa.actor_id = a.id WHERE gender = 'M' ORDER BY count desc LIMIT 10;";
+
+    db.query(sqlQuery, (err, result) => {
+        if (err) {
+            res.send(err);
+            return;
+        }
+        res.send(result);
+    })
+});
+
+// GET FEMALE ACTOR APPEARANCES
+app.get('/GET/actor-appearances-female', (req, res) => {
+
+    const sqlQuery = "SELECT a.first_name, a.last_name, fa.count FROM fact_actors fa LEFT JOIN actors a ON fa.actor_id = a.id WHERE gender = 'F' ORDER BY count desc LIMIT 10;";
+
+    db.query(sqlQuery, (err, result) => {
+        if (err) {
+            res.send(err);
+            return;
+        }
+        res.send(result);
+    })
+});
+
+// GET TOP 10 MOVIES OF ALL TIME
+app.get('/GET/top-10-movies-all-time', (req, res) => {
+
+    const sqlQuery = "SELECT DISTINCT movie_name, movie_year, movie_rank FROM dimension_movies ORDER BY movie_rank DESC LIMIT 10;";
+    
+    db.query(sqlQuery, (err, result) => {
+        if (err) {
+            res.send(err);
+            return;
+        }
+        res.send(result);
+    })
+});
+
+// GET HIGHEST RATED GENRES OF ALL TIIME
+app.get('/GET/highest-rated-genres', (req, res) => {
+
+    const sqlQuery = "SELECT movie_genre AS 'Genre', AVG(movie_rank) AS `Rank` FROM dimension_movies WHERE movie_genre IS NOT NULL GROUP BY movie_genre ORDER BY `Rank` DESC;";
+    
+    db.query(sqlQuery, (err, result) => {
+        if (err) {
+            res.send(err);
+            return;
+        }
+        res.send(result);
+    })
+});
+
+// GET TOP 10 MOVIES WAR GENRE 2004
+app.get('/GET/top-10-movies-war-genre-2004', (req, res) => {
+
+    const sqlQuery = "SELECT movie_name, movie_rank FROM dimension_movies WHERE movie_year = 2004 AND movie_genre = 'War' ORDER BY movie_rank DESC LIMIT 10;";
+    
+    db.query(sqlQuery, (err, result) => {
+        if (err) {
+            res.send(err);
+            return;
+        }
+        res.send(result);
+    })
 });
 
 app.listen(port, () => {

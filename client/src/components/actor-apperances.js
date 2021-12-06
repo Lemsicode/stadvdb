@@ -2,30 +2,33 @@ import React, { useEffect, useState } from 'react';
 import Axios from 'axios';
 import uniqid from 'uniqid';
 
-export default function Top2000Movies() {
+export default function ActorAppearances() {
 
   const [dataList, setDataList] = useState([]);
 
   useEffect(() => {
-    Axios.get('http://localhost:3001/query').then((response) => {
+    Axios.get('http://localhost:3001/GET/actor-appearances').then((response) => {
       setDataList(response.data);
     });
   }, [])
+
   return(
     <div className="table-container section">
-      <h1 className='table-title'>Top Movies in 2000</h1>
+      <h1 className='table-title'>Actors with Most Appearances according to IMDB</h1>
       <table>
         <tbody>
         <tr>
-          <th>Rank</th>
-          <th>Movies</th>
+          <th>Actors</th>
+          <th>Gender</th>
+          <th>Count</th>
         </tr>
         {
           dataList.map(val => {
             return(
-              <tr key={uniqid()}className='row'>
-                <td>{val.rank}</td>
-                <td>{val.genre}</td>
+              <tr key={uniqid()}>
+                <td>{val.first_name} {val.last_name}</td>
+                <td>{val.gender}</td>
+                <td>{val.count} times</td>
               </tr>
             )
           })

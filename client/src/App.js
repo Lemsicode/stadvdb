@@ -19,6 +19,7 @@ export default function App() {
 
       <Top2004Movies />
       <HighestRatedGenres2004 />
+      <Top10MoviesWarGenre2004 />
 
       <ActorAppearances />
       <ActorAppearancesMale />
@@ -26,8 +27,6 @@ export default function App() {
       
       <Top10MoviesAllTime />
       <HighestRatedGenresAllTime />
-
-      <Top10MoviesWarGenre2004 />
     </div>
   );
 }

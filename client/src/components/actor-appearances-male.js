@@ -14,7 +14,7 @@ export default function ActorAppearancesMale() {
 
   return(
     <div className="table-container section" id="actor-appearances-male">
-      <h1 className='table-title'>Male Actors with Most Appearances according to IMDB</h1>
+      <h1 className='table-title'>Top 10 Male Actors with Most Appearances according to IMDB</h1>
       <table>
         <tbody>
         <tr>

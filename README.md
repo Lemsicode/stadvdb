@@ -4,7 +4,8 @@ There are two projects in this single repository. Don't fret to the two `package
 
 ## Server Configuration
 1. Inside the server folder, run CMD, and type `npm install`
-2. Run the server by typing `npm run devStart` in the Command Line.
+2. Go inside `index.js` and change the details in the Database Details if necessary.
+3. Run the server by typing `npm run devStart` in the Command Line.
 
 ## Client Configuration
 1. Go inside the client folder, run CMD, and type `npm install`

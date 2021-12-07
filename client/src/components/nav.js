@@ -38,6 +38,9 @@ export default function Nav() {
       <a href="#highest-rated-genres-2004" className='nav-link'>
         <div className="nav-button"></div>
       </a>
+      <a href="#top-10-movies-war-genre-2004" className='nav-link'>
+        <div className="nav-button"></div>
+      </a>
       <a href="#actor-appearances" className='nav-link'>
         <div className="nav-button"></div>
       </a>
@@ -51,9 +54,6 @@ export default function Nav() {
         <div className="nav-button"></div>
       </a>
       <a href="#highest-rated-genres-all-time" className='nav-link'>
-        <div className="nav-button"></div>
-      </a>
-      <a href="#top-10-movies-war-genre-2004" className='nav-link'>
         <div className="nav-button"></div>
       </a>
     </nav>

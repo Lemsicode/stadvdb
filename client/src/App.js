@@ -10,10 +10,12 @@ import HighestRatedGenresAllTime from "./components/highest-rated-genres";
 
 import Top10MoviesWarGenre2004 from "./components/Top-10-Movies-War-Genre-2004";
 import './styles/App.css';
+import Nav from "./components/nav";
 
 export default function App() {
   return (
     <div className="App">
+      <Nav />
 
       <Top2004Movies />
       <HighestRatedGenres2004 />

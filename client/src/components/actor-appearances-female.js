@@ -13,7 +13,7 @@ export default function ActorAppearancesFemale() {
   }, [])
 
   return(
-    <div className="table-container section">
+    <div className="table-container section" id="actor-appearances-female">
       <h1 className='table-title'>Female Actors with Most Appearances according to IMDB</h1>
       <table>
         <tbody>

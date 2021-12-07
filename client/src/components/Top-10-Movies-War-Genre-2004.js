@@ -12,7 +12,7 @@ export default function Top10MoviesWarGenre2004() {
     });
   }, [])
   return(
-    <div className="table-container section">
+    <div className="table-container section" id="top-10-movies-war-genre-2004">
       <h1 className='table-title'>Top 10 Movies under the War Genre in 2004 according to IMDB</h1>
       <table>
         <tbody>

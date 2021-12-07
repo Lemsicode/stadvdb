@@ -12,7 +12,7 @@ export default function Top2004Movies() {
     });
   }, [])
   return(
-    <div className="table-container section">
+    <div className="table-container section" id='top-2004-movies'>
       <h1 className='table-title'>Top 10 Movies in 2004 according to IMDB</h1>
       <table>
         <tbody>

@@ -13,7 +13,7 @@ export default function Top10MoviesAllTime() {
   }, [])
 
   return(
-    <div className="table-container section">
+    <div className="table-container section" id="top-10-movies-all-time">
       <h1 className='table-title'>Top 10 Movies of All Time according to IMDB</h1>
       <table>
         <tbody>

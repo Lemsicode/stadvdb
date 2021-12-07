@@ -13,7 +13,7 @@ export default function HighestRatedGenresAllTime() {
   }, [])
 
   return (
-    <div className="hi-genre-2000 section">
+    <div className="hi-genre-2000 section" id="highest-rated-genres-all-time">
       <div>
         <h1 className='graph-title'>Highest Rated Genre of All Time according to IMDB</h1>
           <BarChart width={1870} height={350} data={dataList}>

@@ -8,6 +8,7 @@
   background-color: #fbe790;
   overflow: hidden;
   font-family: 'Helvetica';
+  scroll-snap-type: mandatory;
 }
 
 h1 {
@@ -19,6 +20,7 @@ h1 {
   display: grid;
   place-content: center;
   text-align: center;
+  scroll-snap-align: center;
 }
 
 .graph {
@@ -42,4 +44,25 @@ table th {
 
 table td {
   font-size: 1.2em;
+  width: 50%;
+}
+
+.navbar {
+  position: fixed;
+  top: 50%;
+  right: 1.5%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.nav-button {
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.521);
+  margin: 10px 0px;
+}
+
+.active {
+  background-color: black;
 }
